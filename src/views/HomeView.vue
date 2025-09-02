@@ -1,9 +1,11 @@
-<script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <div class="border">HOME</div>
 </template>
+
+<style scoped>
+.border {
+  border: 1px dashed #ccc;
+}
+</style>
