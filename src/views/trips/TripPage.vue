@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <RouterView />
+  <div>TripId: {{ $route.params.id }}</div>
 </template>
 
 <style scoped></style>

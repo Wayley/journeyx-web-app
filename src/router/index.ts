@@ -1,22 +1,58 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+
+import baseRoutes from './base'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView,
+      name: 'index',
+      component: () => import('@/views/navbar/NavBar.vue'),
+      children: [
+        {
+          path: '/galleries',
+          name: 'galleries',
+          component: () => import('@/views/galleries/GalleryList.vue'),
+        },
+        {
+          path: '/trips',
+          name: 'trips',
+          component: () => import('@/views/trips/TripList.vue'),
+        },
+        {
+          path: '/discoveries',
+          name: 'discoveries',
+          component: () => import('@/views/discoveries/DiscoveryList.vue'),
+        },
+        {
+          path: '/mine',
+          name: 'mine',
+          component: () => import('@/views/mine/index.vue'),
+        },
+      ],
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
+      path: '/galleries/:id',
+      name: 'galleryPage',
+      component: () => import('@/views/galleries/GalleryPage.vue'),
     },
+    {
+      path: '/trips/:id',
+      name: 'tripPage',
+      component: () => import('@/views/trips/TripPage.vue'),
+    },
+    {
+      path: '/discoveries/:id',
+      name: 'discoveryPage',
+      component: () => import('@/views/discoveries/DiscoveryPage.vue'),
+    },
+    {
+      path: '/user/profile',
+      name: 'userProfile',
+      component: () => import('@/views/user/UserProfile.vue'),
+    },
+    ...baseRoutes,
   ],
 })
 

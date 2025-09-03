@@ -25,6 +25,9 @@ export default defineConfigWithVueTs(
         tsconfigRootDir: __dirname,
       },
     },
+    rules: {
+      'vue/multi-word-component-names': ['error', { ignores: ['index'] }],
+    },
   },
 
   globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),

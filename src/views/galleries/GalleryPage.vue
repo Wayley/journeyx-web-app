@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <RouterView />
+  <div>GalleryId: {{ $route.params.id }}</div>
 </template>
 
 <style scoped></style>
