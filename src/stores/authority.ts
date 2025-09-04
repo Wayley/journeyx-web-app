@@ -1,13 +1,15 @@
 import { defineStore } from 'pinia'
-import { computed, readonly, ref, type Ref } from 'vue'
+import { computed, readonly } from 'vue'
+import { useStorage } from '@vueuse/core'
 
 export interface Authority {
   token: string
   expiredTimeStamp: number
 }
 
-export const useAuthorityStore = defineStore('authority', () => {
-  const authority: Ref<Authority | undefined> = ref(undefined)
+const KEY = 'AUTHORITY'
+export const useAuthorityStore = defineStore(KEY, () => {
+  const authority = useStorage<Authority | undefined>(KEY, undefined)
   const isAuthenticated = computed(() => !!authority.value)
 
   function signin(v: Authority) {
