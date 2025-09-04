@@ -4,12 +4,12 @@ const routes: Readonly<RouteRecordRaw[]> = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/views/base/LoginPage.vue'),
+    component: () => import('@/views/base/SignIn.vue'),
   },
   {
     path: '/register',
     name: 'register',
-    component: () => import('@/views/base/RegisterPage.vue'),
+    component: () => import('@/views/base/SignUp.vue'),
   },
   {
     path: '/:pathMatch(.*)',

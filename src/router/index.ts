@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import baseRoutes from './base'
+import { useAuthorityStore } from '@/stores/authority'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -51,9 +52,17 @@ const router = createRouter({
       path: '/user/profile',
       name: 'userProfile',
       component: () => import('@/views/user/UserProfile.vue'),
+      meta: { authRequired: true },
     },
     ...baseRoutes,
   ],
+})
+
+router.beforeEach((to, from, next) => {
+  const authStore = useAuthorityStore()
+  if (to.meta?.authRequired && !authStore.isAuthenticated && to.name !== 'login')
+    next({ name: 'login' })
+  else next()
 })
 
 export default router
