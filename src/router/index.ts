@@ -80,9 +80,10 @@ const router = createRouter({ history: createWebHistory(import.meta.env.BASE_URL
 import { useAuthorityStore } from '@/stores/authority'
 const ROUTE_NAME_SIGN_IN = 'signin'
 router.beforeEach((to, from, next) => {
-  const authStore = useAuthorityStore()
-  if (to.meta?.authRequired && !authStore.isAuthenticated && to.name !== ROUTE_NAME_SIGN_IN)
-    next({ name: ROUTE_NAME_SIGN_IN, query: { form: to.fullPath } })
+  const needSignin =
+    to.meta?.authRequired && !useAuthorityStore().isAuthenticated && to.name !== ROUTE_NAME_SIGN_IN
+
+  if (needSignin) next({ name: ROUTE_NAME_SIGN_IN, query: { form: to.fullPath } })
   else next()
 })
 

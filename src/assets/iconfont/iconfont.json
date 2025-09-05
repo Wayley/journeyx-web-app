@@ -1,0 +1,23 @@
+{
+  "id": "5014959",
+  "name": "journeyx",
+  "font_family": "iconfont",
+  "css_prefix_text": "iconfont-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "13426706",
+      "name": "dark",
+      "font_class": "dark",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "43723779",
+      "name": "light",
+      "font_class": "light",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    }
+  ]
+}

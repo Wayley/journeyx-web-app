@@ -1,4 +1,6 @@
 :root {
+  --blue: #1989fa;
+  --primary-color: var(--blue);
 }
 *,
 *::before,
@@ -10,8 +12,6 @@
 }
 
 body {
-  min-height: 100vh;
-  line-height: 1.6;
   background-color: #fff;
   font-family:
     Inter,
